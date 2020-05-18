@@ -1,4 +1,4 @@
-from app import db
+from app import db, app
 from flask import jsonify, request, url_for, g, abort
 from app.api import bp
 from app.models import Attendance
