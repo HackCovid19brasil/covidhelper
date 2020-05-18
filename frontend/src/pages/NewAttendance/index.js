@@ -13,6 +13,7 @@ export default function NewAttendance() {
     const [age, setAge] = useState(0);
     const [height, setHeight] = useState(0);
     const [weight, setWeight] = useState(0);
+    const [temperature, setTemperature] = useState(0);
     const [readOnly, setReadOnly] = useState(false);
 
     const [influenza, setInfluenza] = useState('DESCONHECIDO');
@@ -72,6 +73,7 @@ export default function NewAttendance() {
             age: age,
             height: height,
             weight: weight,
+            temperature: temperature,
             influenza: influenza,
             parainfluenza: parainfluenza,
             h1n1: h1n1,
@@ -212,7 +214,7 @@ export default function NewAttendance() {
                             type="number"
                             min="0"
                             max="250"
-                            step="1"
+                            step="0.1"
                             value={height}
                             onChange={e => setHeight(e.target.value)}
                             placeholder=" "
@@ -225,13 +227,26 @@ export default function NewAttendance() {
                             type="number"
                             min="0"
                             max="300"
-                            step="1"
+                            step="0.1"
                             value={weight}
                             onChange={e => setWeight(e.target.value)}
                             placeholder=" "
                             required
                         />
                         <label>PESO (Kg)</label>
+                    </div>
+                    <div className="label-float">
+                        <input form="submitForm"
+                            type="number"
+                            min="0"
+                            max="50"
+                            step="0.1"
+                            value={temperature}
+                            onChange={e => setTemperature(e.target.value)}
+                            placeholder=" "
+                            required
+                        />
+                        <label>TEMPERATURA (°C)</label>
                     </div>
                 </div>
 

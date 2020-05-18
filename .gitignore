@@ -5,3 +5,5 @@ venv/
 .vscode/
 __pycache__/
 
+frontend/src/services/api.js
+backend/convidhelper.db

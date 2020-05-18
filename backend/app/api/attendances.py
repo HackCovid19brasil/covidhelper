@@ -42,6 +42,7 @@ def create_attendance():
         db.session.add(user)
     
     attendance = user.add_attendance()
+    print(data)
     attendance.from_dict(data)
     db.session.add(attendance)
     db.session.commit()

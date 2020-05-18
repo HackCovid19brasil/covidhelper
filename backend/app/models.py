@@ -257,9 +257,14 @@ class Attendance(PaginatedAPIMixin, db.Model):
         return data
 
     def from_dict(self, data):
-        for field in ['timestamp', 'timestamp', 'age', 'height', 'weight', 'temperature', 'cbc', 'pcr', 'respiratory_infections']:
+        remaining_fields = ['age', 'height', 'weight', 'temperature', 'cbc', 'pcr', 'respiratory_infections']
+        for field in remaining_fields:
             if field in data:
+                if type(data[field]) == 'dict':
+                    for field2 in data[field]:
+                        setattr(self, field, data[field])
                 setattr(self, field, data[field])
+
 
     def __repr__(self):
         return '<Attendance {}>'.format(self.id)
