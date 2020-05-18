@@ -33,6 +33,9 @@ class labtest_predictor:
 
     classifier = joblib.load('app/ai_models/classificador_lucas.pkl') #load only once
 
+    IP = app.config['IP']
+    API_PORT = app.config['API_PORT']
+
     #End of class variables
 
     def __init__(self, patient_dict):
@@ -105,10 +108,10 @@ class labtest_predictor:
 
 
         #URL API PLOTS
-        plot_1_api = "http://localhost:5000/api/media/probacurve-"+str(patient_id)+".png"
-        plot_2_api = "http://localhost:5000/api/media/shap-"+str(patient_id)+".png"
-        plot_3_api = "http://localhost:5000/api/media/dist-"+str(patient_id)+".png"
-        plot_4_api = "http://localhost:5000/api/media/mapa-"+str(patient_id)+".png"
+        plot_1_api = "http://"+self.IP+":"+self.API_PORT+"/api/media/probacurve-"+str(patient_id)+".png"
+        plot_2_api = "http://"+self.IP+":"+self.API_PORT+"/api/media/shap-"+str(patient_id)+".png"
+        plot_3_api = "http://"+self.IP+":"+self.API_PORT+"/api/media/dist-"+str(patient_id)+".png"
+        plot_4_api = "http://"+self.IP+":"+self.API_PORT+"/api/media/mapa-"+str(patient_id)+".png"
         
         #### Configurações gerais do plt
         DPI_IMAGES=100

@@ -7,3 +7,5 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'convidhelper.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MEDIA_FOLDER = os.path.join(basedir, 'app/ai_models/temp/')
+    IP = "3.22.176.142"
+    API_PORT = "5000"
