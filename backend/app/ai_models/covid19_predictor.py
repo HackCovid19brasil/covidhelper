@@ -145,7 +145,7 @@ class labtest_predictor:
         axis.set_ylim([0, axis.get_ylim()[1]])
         plt.tight_layout()
         # Salvar plot 1
-        plt.savefig(plot_1_name, dpi=DPI_IMAGES, bbox_inches='tight', pad_inches=0)
+        plt.savefig(plot_1_name, dpi=DPI_IMAGES, bbox_inches='tight', pad_inches=0.1)
         plt.close()
         
         #### PLOT 2 - SHAP
@@ -159,7 +159,7 @@ class labtest_predictor:
         shap_values_sample = explainer.shap_values(sample_x)  # Calcular os SHAP values
         # Plot
         #plt.title('Valores SHAP', fontweight='bold')
-        waterfall_plot(expected_value, shap_values_sample[0], sample_x, feature_names=features, max_display=20, show=False)
+        waterfall_plot(expected_value, shap_values_sample[exame_resp], sample_x, feature_names=features, max_display=20, show=False)
         # Salvar imagem
         plt.tight_layout()
         plt.savefig(plot_2_name, dpi=DPI_IMAGES, bbox_inches='tight', pad_inches=0)
@@ -206,7 +206,7 @@ class labtest_predictor:
         # Ajeitar o plot
         plt.tight_layout()
         # Salvar imagem
-        plt.savefig(plot_3_name, dpi=DPI_IMAGES, bbox_inches='tight', pad_inches=0)
+        plt.savefig(plot_3_name, dpi=DPI_IMAGES, bbox_inches='tight', pad_inches=0.1)
         plt.close()
         
         #### PLOT 4 - Mapa com SVD para os pacientes
@@ -229,7 +229,7 @@ class labtest_predictor:
         comp_0 = comp[comp['TG'] == 0][['C1', 'C2']]                                 # Dataframe de CP para negativos
         comp_1 = comp[comp['TG'] == 1][['C1', 'C2']]                                 # Dataframe de CP para positivos
         # Plot
-        fig, ax = plt.subplots(figsize=(5,5))
+        fig, ax = plt.subplots(figsize=(8,8))
         plt.margins(0,0)
         sns.scatterplot(ax=ax, data=comp_0, x='C1',y='C2', color='#386796', label='Casos Negativos')
         sns.scatterplot(ax=ax, data=comp_1, x='C1',y='C2', color='#F06C61', label='Casos Positivos')

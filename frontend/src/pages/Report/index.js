@@ -119,7 +119,7 @@ export default function Report(props) {
         <div>
             <HeaderApp/>
             <div className="report-box">
-                <h1>Report</h1>
+                <h1>Relatório de Previsão para SARS-CoV-2</h1>
 
 
                 <ResultBox result={result} proba={result_proba}/>
